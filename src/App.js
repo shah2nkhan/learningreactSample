@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Person from'./person/Person';
 //import logo from './logo.svg';
-import './App.css';
+import classes from './App.css';
+import ErrorBoundry from './ErrorBoundry/ErrorBoundry'
 
 class App extends Component {
   state= {
@@ -48,42 +49,37 @@ class App extends Component {
   }
 
   render() {
-    const style ={
-      backgroundColor:'green',
-      color:'white',
-      font:'inherit',
-      border:'1x solid blue',
-      padding:'8px',
-      cursor:'pointer',
-     
-    };
+   
     let person = null;
+    let btnClass='';
     if(this.state.showpersons)
     {
       person =(
         <div>
           {this.state.persons.map((p,index)=> {
-           return <Person 
+           return <ErrorBoundry key={p.id}>
+             <Person 
             name={p.name} 
             age ={p.age} 
             click={()=>this.deletePersonHandler(index)} 
             changeName={(event)=>this.changeName(event,index)}
             key={p.id}
              />
+             </ErrorBoundry> 
           })}        
       </div>  
       );
-      style.backgroundColor = 'red';
-      
+      btnClass =classes.Red;
 
     }
-    let classes =['red','bold'].join(' ');
+    let assignedClasses =[classes.red,classes.bold].join(' ');
+ 
 
     return (
-      <div className="App">
+      <div className={classes.App}>
         <h1>Test</h1>   
-        <p className={classes}>This is nice</p>   
-        <button style={style} onClick={this.toggleShowPerson} >Play With PersonList</button>    
+        <p className={assignedClasses}>This is nice</p>   
+        <button className={btnClass} onClick={this.toggleShowPerson} >Play With PersonList</button>    
         {person}        
       </div>
     );

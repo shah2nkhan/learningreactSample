@@ -38,3 +38,28 @@
 .bold{
   font-weight: bold;
 }
+
+.App button {
+  background-Color: green;
+  border: 1px solid blue;
+  font:'inherit';
+  padding:8px;
+  cursor:pointer;
+  color: white; 
+}
+
+
+.App button:hover {
+  background-Color: lightgreen;
+  color: black;
+ }
+
+ 
+.App button.Red {
+  background-Color: Red;
+  
+ }
+ .App button.Red:hover {
+  background-Color: salmon;
+  color: black;
+ }
