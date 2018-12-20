@@ -4,6 +4,7 @@ import Persons from'../components/persons/Persons';
 import classes from './App.css';
 //import ErrorBoundry from '../components/ErrorBoundry/ErrorBoundry'
 import Cockpit from '../components/cockpit/Cockpit';
+import withClass from '../hoc/withClass';
 
 class App extends PureComponent {
   constructor(props){
@@ -68,19 +69,19 @@ class App extends PureComponent {
     }
 
     return (
-      <div className={classes.App}>
+      <>
        <Cockpit
           appTitle={this.props.title}
           showPersons={this.state.showPersons}
           persons={this.state.persons}
           clicked={this.toggleShowPerson} />
         {persons}      
-      </div>
+      </>
     );
   }
 }
 
-export default  App;
+export default  withClass(App,classes.App);
 /* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
