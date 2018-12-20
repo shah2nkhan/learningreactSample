@@ -45,13 +45,14 @@ class App extends PureComponent {
   }
 
   toggleShowPerson=()=>{
-    const doesShow=this.state.showPersons;
-    this.setState({showPersons:!doesShow })
+    //mutating state  if old value needs to be used for new value
+    this.setState( (prevState,props)=>{
+      return { showPersons:!prevState.showPersons }
+    });
   }
 
   deletePersonHandler =(index)=>{
     const persons=[...this.state.persons];
-
     persons.splice(index,1);
     this.setState({persons:persons});
   }
