@@ -23,17 +23,17 @@ class App extends PureComponent {
     }
 
   }
-  componentWillMount(){
-    console.log('[APP.js] Component with  mount ');
-  }
+  // componentWillMount(){
+  //   console.log('[APP.js] Component with  mount ');
+  // }
   
-  componentDidMount(){
-    console.log('[APP.js] Component Did  mount ');
-  }
+  // componentDidMount(){
+  //   console.log('[APP.js] Component Did  mount ');
+  // }
   
-  shouldComponentUpdate(){
-    console.log('[APP.js] shouldComponentUpdate');
-  }
+  // shouldComponentUpdate(){
+  //   console.log('[APP.js] shouldComponentUpdate');
+  // }
 
   changeName =(event, index) => {   
     const person = {...this.state.persons[index]};
